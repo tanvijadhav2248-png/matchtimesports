@@ -1,0 +1,159 @@
+<!DOCTYPE html><html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>UPI Payment - Match Time Sports</title><style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Poppins,sans-serif;
+}
+
+body{
+background:#f5f5f5;
+padding:30px;
+}
+
+.container{
+max-width:650px;
+margin:auto;
+background:white;
+padding:30px;
+border-radius:20px;
+text-align:center;
+box-shadow:0 10px 25px rgba(0,0,0,.1);
+}
+
+h1{
+color:#111827;
+margin-bottom:15px;
+}
+
+#amount{
+color:#22c55e;
+font-size:30px;
+font-weight:bold;
+margin:15px 0;
+}
+
+.qr{
+width:280px;
+display:block;
+margin:20px auto;
+border-radius:15px;
+}
+
+.upi-box{
+background:#f8fafc;
+padding:15px;
+border-radius:12px;
+margin:20px 0;
+}
+
+.order-box{
+background:#eef2ff;
+padding:15px;
+border-radius:12px;
+margin:20px 0;
+font-weight:bold;
+}
+
+input[type="file"]{
+width:100%;
+padding:10px;
+margin-top:15px;
+}
+
+button{
+width:100%;
+margin-top:15px;
+background:#22c55e;
+color:white;
+border:none;
+padding:14px;
+border-radius:10px;
+cursor:pointer;
+font-size:16px;
+font-weight:bold;
+}
+
+button:hover{
+background:#16a34a;
+}
+
+.note{
+margin-top:15px;
+color:#ef4444;
+font-size:14px;
+}
+
+</style></head><body><div class="container"><h1>💳 UPI Payment</h1><p>Please complete payment using QR code</p><h2 id="amount"></h2><img src="images/upi-qr.jpg" class="qr"><div class="upi-box"><h3>UPI ID</h3><p>
+<b>sagarjadhav9431@okicici</b>
+</p></div><div class="order-box">Order ID:
+<span id="orderId"></span>
+
+</div><h3>Upload Payment Screenshot</h3><input type="file" id="paymentProof" accept="image/*"><p class="note">
+⚠ Please upload payment screenshot before confirmation.
+</p><button onclick="paymentDone()">
+✅ I Have Paid
+</button></div><script>
+
+let cart =
+JSON.parse(localStorage.getItem("cart")) || [];
+
+let total = 0;
+
+cart.forEach(item=>{
+total += item.price * item.quantity;
+});
+
+document.getElementById("amount").innerHTML =
+"Amount: ₹" + total;
+
+let orderId =
+sessionStorage.getItem("lastOrderId") ||
+("MTS" + Date.now());
+
+document.getElementById("orderId").innerText =
+orderId;
+
+function paymentDone(){
+
+let file =
+document.getElementById("paymentProof").files[0];
+
+if(!file){
+alert("Please upload payment screenshot");
+return;
+}
+
+let message =
+"🛒 NEW PAID ORDER%0A%0A" +
+"Order ID: " + orderId + "%0A" +
+"Payment: UPI PAID%0A" +
+"Amount: ₹" + total + "%0A%0A" +
+"Screenshot Uploaded By Customer";
+
+window.open(
+"https://wa.me/918108870708?text=" +
+message,
+"_blank"
+);
+
+alert("Payment Submitted Successfully ✅");
+
+localStorage.removeItem("cart");
+
+setTimeout(function(){
+
+window.location.href =
+"order-success.html";
+
+},1000);
+
+}
+
+</script></body>
+</html>

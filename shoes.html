@@ -1,0 +1,267 @@
+<!DOCTYPE html><html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Match Time Cricket Shoes Collection</title><link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet"><style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+}
+
+body{
+background:linear-gradient(135deg,#f8fafc,#e0f2fe);
+padding:30px;
+}
+
+h1{
+text-align:center;
+font-size:42px;
+color:#111827;
+margin-bottom:10px;
+}
+
+.subtitle{
+text-align:center;
+color:#6b7280;
+margin-bottom:40px;
+font-size:18px;
+}
+
+.products{
+display:flex;
+justify-content:center;
+flex-wrap:wrap;
+gap:35px;
+}
+
+.card{
+width:350px;
+background:white;
+border-radius:22px;
+overflow:hidden;
+box-shadow:0 10px 30px rgba(0,0,0,.12);
+transition:.3s;
+position:relative;
+}
+
+.card:hover{
+transform:translateY(-10px);
+box-shadow:0 20px 40px rgba(0,0,0,.18);
+}
+
+.badge{
+position:absolute;
+top:15px;
+left:15px;
+background:#22c55e;
+color:white;
+padding:6px 14px;
+border-radius:30px;
+font-size:12px;
+font-weight:bold;
+z-index:10;
+}
+
+.card img{
+width:100%;
+height:300px;
+object-fit:contain;
+padding:15px;
+background:white;
+}
+
+.card-content{
+padding:20px;
+text-align:center;
+}
+
+.card-content h3{
+font-size:28px;
+color:#111827;
+margin-bottom:10px;
+}
+
+.rating{
+color:#f59e0b;
+font-size:18px;
+margin-bottom:12px;
+}
+
+.price{
+font-size:32px;
+font-weight:700;
+color:#22c55e;
+margin-bottom:15px;
+}
+
+.features{
+text-align:left;
+font-size:15px;
+line-height:28px;
+color:#4b5563;
+margin-bottom:15px;
+}
+
+button{
+width:100%;
+padding:14px;
+border:none;
+background:#111827;
+color:white;
+border-radius:10px;
+cursor:pointer;
+font-size:16px;
+font-weight:bold;
+transition:.3s;
+}
+
+button:hover{
+background:#22c55e;
+}
+
+.review-title{
+text-align:center;
+font-size:32px;
+margin-top:60px;
+margin-bottom:25px;
+color:#111827;
+}
+
+#reviews{
+max-width:900px;
+margin:auto;
+}
+
+.review-card{
+background:white;
+padding:20px;
+margin-bottom:15px;
+border-radius:15px;
+box-shadow:0 5px 15px rgba(0,0,0,.08);
+}
+
+@media(max-width:768px){
+
+.card{
+width:100%;
+}
+
+h1{
+font-size:32px;
+}
+
+}
+
+</style></head><body><h1>👟 Cricket Shoes Collection</h1><p class="subtitle">
+Premium Match Time Cricket Shoes For Better Grip & Comfort
+</p><div class="products"><!-- SHOE 1 --><div class="card"><div class="badge">BEST SELLER</div><img src="images/shoes1.jpeg" alt="Cricket Shoes"><div class="card-content"><h3>Match Time Cricket Shoes</h3><div class="rating">
+⭐⭐⭐⭐⭐ (4.9/5)
+</div><div class="price">₹700</div><div class="features">
+✔ Rainy Season Studs<br>
+✔ Superior Ground Grip<br>
+✔ Water Resistant<br>
+✔ Lightweight Comfort
+</div><button onclick="addToCart('Match Time Cricket Shoes',700,'images/shoes1.jpeg')">
+Add To Cart
+</button></div></div><!-- SHOE 2 --><div class="card"><img src="images/shoes2.jpeg" alt="Cricket Shoes"><div class="card-content"><h3>Match Time Cricket Shoes Pro</h3><div class="rating">
+⭐⭐⭐⭐⭐ (4.8/5)
+</div><div class="price">₹700</div><div class="features">
+✔ Professional Design<br>
+✔ Comfortable Fit<br>
+✔ Strong Sole Grip<br>
+✔ Long Lasting Quality
+</div><button onclick="addToCart('Match Time Cricket Shoes Pro',700,'images/shoes2.jpeg')">
+Add To Cart
+</button></div></div></div><h2 class="review-title">
+💬 Customer Reviews
+</h2><div id="reviews"><div class="review-card">
+<h4>⭐⭐⭐⭐⭐ Rohit Patil</h4>
+<p>Excellent grip and very comfortable while playing.</p>
+</div><div class="review-card">
+<h4>⭐⭐⭐⭐⭐ Akash Shete</h4>
+<p>Very lightweight shoes. Perfect for cricket matches.</p>
+</div></div><script>
+
+function addToCart(name,price,image){
+
+let cart =
+JSON.parse(localStorage.getItem("cart")) || [];
+
+cart.push({
+name:name,
+price:price,
+image:image,
+quantity:1
+});
+
+localStorage.setItem(
+"cart",
+JSON.stringify(cart)
+);
+
+alert("Added To Cart ✅");
+
+}
+
+</script><script type="module">
+
+import { db } from "./firebase.js";
+
+import {
+collection,
+getDocs,
+query,
+orderBy
+}
+from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+
+async function loadReviews(){
+
+const reviewsContainer =
+document.getElementById("reviews");
+
+const q = query(
+collection(db,"reviews"),
+orderBy("date","desc")
+);
+
+const snapshot = await getDocs(q);
+
+let html = "";
+
+snapshot.forEach((doc)=>{
+
+const r = doc.data();
+
+html += `
+
+<div class="review-card">
+
+<h4>
+${"⭐".repeat(r.rating)}
+${r.name}
+</h4>
+
+<p style="margin-top:10px;color:#555;">
+${r.review}
+</p>
+
+</div>
+
+`;
+
+});
+
+if(html!=""){
+reviewsContainer.innerHTML = html;
+}
+
+}
+
+loadReviews();
+
+</script></body>
+</html>

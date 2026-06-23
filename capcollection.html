@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Cap Collection</title>
+
+<style>
+
+body{
+    font-family:Arial,sans-serif;
+    background:#f5f5f5;
+    margin:0;
+    padding:20px;
+    text-align:center;
+}
+
+h1{
+    margin-bottom:30px;
+}
+
+.container{
+    display:flex;
+    justify-content:center;
+    gap:20px;
+    flex-wrap:wrap;
+    align-items: stretch;
+}
+
+.card{
+    background:white;
+    width:250px;
+    padding:15px;
+    border-radius:15px;
+    box-shadow:0 2px 8px rgba(0,0,0,0.2);
+    transition:0.3s;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.card:hover{
+    transform:translateY(-5px);
+    box-shadow:0 8px 20px rgba(0,0,0,0.2);
+}
+
+.card img{
+    width:100%;
+    height:220px;
+    object-fit:cover;
+    border-radius: 10px;
+}
+
+.card img{
+    transition:0.3s;
+}
+
+.card:hover img{
+    transform:scale(1.05);
+}
+
+.price{
+    color:green;
+    font-size:22px;
+    font-weight:bold;
+    margin:10px 0;
+}
+
+button{
+    background:#111827;
+    color:white;
+    border:none;
+    padding:10px 15px;
+    border-radius:5px;
+    cursor:pointer;
+}
+
+button:hover{
+    background:#16a34a;
+}
+
+.back-btn{
+    display:block;
+    width:200px;
+    margin:50px auto;
+    text-align:center;
+    background:#22c55e;
+    color:white;
+    padding:15px;
+    border-radius:10px;
+    text-decoration:none;
+    font-weight:bold;
+}
+
+    .why-us{
+    margin-top:60px;
+    text-align:center;
+}
+
+.features{
+    display:flex;
+    justify-content:center;
+    gap:20px;
+    flex-wrap:wrap;
+    margin-top:20px;
+}
+
+.feature{
+    background:white;
+    padding:15px 25px;
+    border-radius:10px;
+    box-shadow:0 2px 8px rgba(0,0,0,0.15);
+    font-weight:bold;
+}
+
+.badge{
+    background: red;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+    display: inline-block;
+    margin-bottom: 10px;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.review-card{
+    background:white;
+    width:300px;
+    padding:15px;
+    border-radius:10px;
+    box-shadow:0 2px 8px rgba(0,0,0,0.15);
+    transition:0.3s;
+}
+
+.review-card:hover{
+    transform:translateY(-5px);
+    box-shadow:0 8px 20px rgba(0,0,0,0.2);
+}
+
+.reviews{
+    display:flex;
+    justify-content:center;
+    gap: 20px;
+    flex-wrap:wrap;
+    margin-top:20px;
+}
+
+.reviews-title{
+    text-align:center;
+    margin-top:50px;
+}
+
+
+</style>
+</head>
+
+<body>
+
+<h1>🧢 Match Time Sports Premium Cap Collection</h1>
+
+<p style="color:gray; margin-bottom:30px;">
+Premium Sports Caps For Cricket Players
+</p>
+
+<div class="container">
+
+<div class="card">
+     <div class="badge">BEST SELLER</div>
+
+    <img src="images/cap1.jpeg" alt="Cap">
+    <h3>Sports Cap</h3>
+    <p>Premium Quality<br>Comfort Fit</p>
+    <div class="price">₹400</div>
+      <p>⭐⭐⭐⭐⭐ (5.0)</p>  
+    <button onclick="addToCart(
+    'MATCH TIME CAP',
+    400,
+    'images/cap1.jpeg'
+    )">
+    Add To Cart
+    </button>
+</div>
+
+<div class="card">
+    <img src="images/cap2.jpeg" alt="Cap">
+    <h3>Cricket Cap</h3>
+    <p>Lightweight<br>Breathable Fabric</p>
+    <div class="price">₹400</div>
+      <p>⭐⭐⭐⭐⭐ (4.8)</p>
+    <button onclick="addToCart(
+    'MATCH TIME CAP',
+    400,
+    'images/cap2.jpeg'
+    )">
+    Add To Cart
+    </button>
+</div>
+
+<div class="card">
+    <img src="images/cap3.jpeg" alt="Cap">
+    <h3>Team Cap</h3>
+    <p>Stylish Design<br>Premium Stitching</p>
+    <div class="price">₹400</div>
+      <p>⭐⭐⭐⭐⭐ (4.7)</p>
+    <button onclick="addToCart(
+    'MATCH TIME CAP',
+    400,
+    'images/cap3.jpeg'
+    )">
+    Add To Cart
+    </button>
+</div>
+
+<div class="card">
+    <img src="images/cap4.jpeg" alt="Cap">
+    <h3>Match Cap</h3>
+    <p>Sun Protection<br>Adjustable Strap</p>
+    <div class="price">₹400</div>
+      <p>⭐⭐⭐⭐⭐ (4.7)</p>
+    <button onclick="addToCart(
+    'MATCH TIME CAP',
+    400,
+    'images/cap4.jpeg'
+    )">
+    Add To Cart
+    </button>
+</div>
+
+<div class="card">
+    <img src="images/cap5.jpeg" alt="Cap">
+    <h3>Match Cap</h3>
+    <p>Sun Protection<br>Adjustable Strap</p>
+    <div class="price">₹400</div>
+      <p>⭐⭐⭐⭐⭐ (4.9)</p> 
+    <button onclick="addToCart(
+    'MATCH TIME CAP',
+    400,
+    'images/cap1.jpeg'
+    )">
+    Add To Cart
+    </button>
+</div>
+
+</div>
+
+<div class="why-us">
+    <h2>Why Choose Match Time Sports?</h2>
+
+    <div class="features">
+        <div class="feature">🧢 Premium Quality Caps</div>
+        <div class="feature">☀ Sun Protection</div>
+        <div class="feature">💨 Breathable Fabric</div>
+        <div class="feature">⭐ Trusted By Players</div>
+    </div>
+</div>
+
+<h2 style="margin-top:50px; text-align:center;">
+    Customer Reviews
+</h2>
+
+<div class="reviews">
+
+    <div class="review-card">
+        <h3>⭐⭐⭐⭐⭐</h3>
+        <p>"Very comfortable cap and excellent quality."</p>
+        <strong>- Rahul Sharma</strong>
+    </div>
+
+    <div class="review-card">
+        <h3>⭐⭐⭐⭐⭐</h3>
+        <p>"Perfect fitting and stylish design."</p>
+        <strong>- Amit Patel</strong>
+    </div>
+
+</div>
+
+<a href="matchtimeweb.html" class="back-btn">
+← Back To Home
+</a>
+
+<script>
+function addToCart(name, price, image){
+
+    let cart =
+    JSON.parse(localStorage.getItem("cart")) || [];
+
+    cart.push({
+        name: name,
+        price: price,
+        image: image,
+        quantity: 1
+    });
+
+    localStorage.setItem(
+        "cart",
+        JSON.stringify(cart)
+    );
+
+    alert(name + " Added To Cart!");
+}
+</script>
+
+</body>
+</html>

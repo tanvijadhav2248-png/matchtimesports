@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Eye Guard Collection</title>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Poppins,sans-serif;
+}
+
+body{
+background:linear-gradient(to right,#f8fafc,#eef2ff);
+padding:30px;
+}
+
+h1{
+text-align:center;
+font-size:42px;
+color:#111827;
+margin-bottom:10px;
+}
+
+.subtitle{
+text-align:center;
+color:gray;
+font-size:16px;
+margin-bottom:40px;
+}
+
+.products{
+display:flex;
+justify-content:center;
+flex-wrap:wrap;
+gap:25px;
+max-width:1000px;
+margin:auto;
+}
+
+.card{
+width:340px;
+background:white;
+border-radius:20px;
+overflow:hidden;
+box-shadow:0 10px 25px rgba(0,0,0,.15);
+position:relative;
+transition:.3s;
+}
+
+.card:hover{
+transform:translateY(-8px);
+box-shadow:0 15px 30px rgba(0,0,0,.25);
+}
+
+.card img{
+width:100%;
+height:250px;
+object-fit:contain;
+padding:10px;
+}
+
+.badge{
+position:absolute;
+top:12px;
+left:12px;
+background:#22c55e;
+color:white;
+padding:6px 12px;
+border-radius:20px;
+font-size:12px;
+font-weight:bold;
+}
+
+.card-content{
+padding:20px;
+text-align:center;
+}
+
+.price{
+font-size:28px;
+color:#22c55e;
+font-weight:700;
+margin:10px 0;
+}
+
+.offer{
+color:#ff6b00;
+font-size:14px;
+font-weight:bold;
+margin-bottom:12px;
+}
+
+button{
+width:100%;
+padding:12px;
+border:none;
+background:#22c55e;
+color:white;
+border-radius:8px;
+cursor:pointer;
+font-size:16px;
+font-weight:bold;
+}
+
+button:hover{
+background:#16a34a;
+}
+
+.reviews{
+max-width:900px;
+margin:60px auto 0;
+}
+
+.reviews h2{
+text-align:center;
+margin-bottom:25px;
+color:#111827;
+}
+
+.review-card{
+background:white;
+padding:20px;
+margin-bottom:15px;
+border-radius:15px;
+box-shadow:0 5px 15px rgba(0,0,0,.1);
+}
+
+.review-card h4{
+margin-bottom:5px;
+}
+
+@media(max-width:768px){
+
+h1{
+font-size:30px;
+}
+
+.card{
+width:100%;
+}
+
+}
+
+</style>
+</head>
+
+<body>
+
+<h1>🥽 Eye Guard Collection</h1>
+
+<p class="subtitle">
+Premium Cricket Eye Guards For Maximum Protection
+</p>
+
+<div class="products">
+
+    <!-- Eye Guard 1 -->
+    <div class="card">
+
+        <div class="badge">BEST SELLER</div>
+
+        <img src="images/eyeguard1.jpeg" alt="Eye Guard">
+
+        <div class="card-content">
+
+            <h3>Premium Eye Guard</h3>
+
+            <div class="price">₹850</div>
+
+            
+            <button onclick="addToCart('Premium Eye Guard',850,'images/eyeguard1.jpeg')">
+                Add To Cart
+            </button>
+
+        </div>
+
+    </div>
+
+    <!-- Eye Guard 2 -->
+    <div class="card">
+
+        <img src="images/eyeguard2.jpeg" alt="Eye Guard">
+
+        <div class="card-content">
+
+            <h3>Pro Eye Guard</h3>
+
+            <div class="price">₹850</div>
+
+        
+
+            <button onclick="addToCart('Pro Eye Guard',850,'images/eyeguard2.jpeg')">
+                Add To Cart
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+<!-- Reviews Section -->
+
+<div class="reviews">
+
+<h2>⭐⭐ Customer Reviews</h2>
+
+<div class="review-card">
+<h4>Rahul Sharma</h4>
+<p>⭐⭐⭐⭐⭐</p>
+<p>Very comfortable and lightweight. Excellent quality.</p>
+</div>
+
+<div class="review-card">
+<h4>Amit Patil</h4>
+<p>⭐⭐⭐⭐⭐</p>
+<p>Best eye guard for cricket practice. Highly recommended.</p>
+</div>
+
+<div class="review-card">
+<h4>Rohit Singh</h4>
+<p>⭐⭐⭐⭐</p>
+<p>Strong material and good fitting.</p>
+</div>
+
+</div>
+
+<script>
+
+function addToCart(name,price,image){
+
+let cart =
+JSON.parse(localStorage.getItem("cart")) || [];
+
+cart.push({
+name:name,
+price:price,
+image:image,
+quantity:1
+});
+
+localStorage.setItem(
+"cart",
+JSON.stringify(cart)
+);
+
+alert("Added To Cart");
+
+}
+
+</script>
+
+</body>
+</html>

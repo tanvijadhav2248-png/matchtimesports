@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cricket Jersey Collection</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:Arial, sans-serif;
+    background:#f5f5f5;
+    padding:20px;
+}
+
+h1{
+    text-align:center;
+    color:#111827;
+    margin-bottom:20px;
+}
+
+.home-section{
+    text-align:center;
+    margin-bottom:30px;
+}
+
+.home-btn{
+    display:inline-block;
+    background:#22c55e;
+    color:white;
+    text-decoration:none;
+    padding:12px 25px;
+    border-radius:8px;
+    font-weight:bold;
+    transition:0.3s;
+}
+
+.home-btn:hover{
+    background:#16a34a;
+}
+
+.products{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:20px;
+}
+
+.card{
+    background:white;
+    width:250px;
+    border-radius:12px;
+    padding:15px;
+    text-align:center;
+    box-shadow:0 2px 10px rgba(0,0,0,0.1);
+}
+
+.card img{
+    width:100%;
+    height:250px;
+    object-fit:contain;
+    border-radius:10px;
+}
+
+.rating{
+    color:#f59e0b;
+    font-size:20px;
+    margin:8px 0;
+}
+
+.review{
+    color:#666;
+    font-size:14px;
+    margin-bottom:10px;
+}
+
+.price{
+    color:green;
+    font-size:22px;
+    font-weight:bold;
+    margin:10px 0;
+}
+
+button{
+    background:#111827;
+    color:white;
+    border:none;
+    padding:12px 20px;
+    border-radius:8px;
+    cursor:pointer;
+    font-weight:bold;
+}
+
+button:hover{
+    background:#374151;
+}
+
+.review-box{
+    max-width:700px;
+    margin:50px auto;
+    background:white;
+    padding:20px;
+    border-radius:10px;
+    box-shadow:0 2px 10px rgba(0,0,0,0.1);
+}
+
+.review-box input,
+.review-box textarea{
+    width:100%;
+    padding:10px;
+    margin-bottom:10px;
+}
+
+.review-box textarea{
+    height:100px;
+}
+
+.product-img{
+    width:100px;
+    height:100px;
+    object-fit:cover;
+    border-radius:10px;
+}
+
+.item{
+    display:flex;
+    align-items:center;
+    background:white;
+    padding:20px;
+    margin:15px 0;
+    border-radius:10px;
+    gap:20px;
+    border-radius:10px;
+}
+
+.product-img{
+    width:80px;
+    height:80px;
+    object-fit:cover;
+    border-radius:10px;
+    margin-right:15px;
+}
+
+.product-info{
+    flex:1;
+}
+
+</style>
+</head>
+
+<body>
+
+<h1>🏏 Match Time Sports - Jersey Collection</h1>
+
+<div class="home-section">
+    <a href="matchtimeweb.html" class="home-btn">
+        ← Back To Home
+    </a>
+</div>
+
+<div class="products">
+
+    <!-- Card 1 -->
+    <div class="card">
+        <img src="images/jersey1.jpeg" alt="Jersey">
+        <h3>MATCH TIME PRO JERSEY</h3>
+
+        <div class="rating">★★★★★</div>
+
+        <p class="review">4.8/5 (24 Reviews)</p>
+
+        <p>
+            Dry Fit Technology<br>
+            Lightweight Fabric<br>
+            Stretchable Material
+        </p>
+
+        <br>
+
+        <label><strong>Size:</strong></label>
+
+        <select>
+            <option>36</option>
+            <option>38</option>
+            <option>40</option>
+            <option>42</option>
+            <option>44</option>
+            <option>46</option>
+        </select>
+
+        <div class="price">₹450 + Shipping</div>
+
+        <button onclick="addToCart(
+        'JERSEY',
+        450,
+        'images/jersey1.jpeg'
+        )">
+        Add To Cart
+        </button>
+    </div>
+
+    <!-- Card 2 -->
+    <div class="card">
+        <img src="images/jersey2.jpeg" alt="Jersey">
+        <h3> MATCH TIME PREMIUM JERSEY</h3>
+
+        <div class="rating">★★★★☆</div>
+
+        <p class="review">4.5/5 (18 Reviews)</p>
+
+        <p>
+            Moisture Control<br>
+            Breathable Mesh<br>
+            Athletic Fit<br>
+            Quick Dry Fabric
+        </p>
+
+        <br>
+
+        <label><strong>Size:</strong></label>
+
+        <select>
+            <option>36</option>
+            <option>38</option>
+            <option>40</option>
+            <option>42</option>
+            <option>44</option>
+            <option>46</option>
+        </select>
+
+        <div class="price">₹450 + Shipping</div>
+
+        <button onclick="addToCart(
+        'JERSEY',
+        450,
+        'images/jersey2.jpeg'
+        )">
+        Add To Cart
+        </button>
+    </div>
+
+    <!-- Card 3 -->
+    <div class="card">
+        <img src="images/jersey3.jpeg" alt="Jersey">
+        <h3>MATCH TIME ELITE JERSEY</h3>
+
+        <div class="rating">★★★★★</div>
+
+        <p class="review">4.9/5 (31 Reviews)</p>
+
+        <p>
+            Ultra Soft Fabric<br>
+            Sweat Absorption<br>
+            Premium Stitching<br>
+            Fade Resistant
+        </p>
+
+        <br>
+
+        <label><strong>Size:</strong></label>
+
+        <select>
+            <option>36</option>
+            <option>38</option>
+            <option>40</option>
+            <option>42</option>
+            <option>44</option>
+            <option>46</option>
+        </select>
+
+        <div class="price">₹400 + Shipping</div>
+
+        <button onclick="addToCart(
+        'JERSEY',
+        400,
+        'images/jersey3.jpeg'
+        )">
+        Add To Cart
+        </button>
+    </div>
+
+    <!-- Card 4 -->
+    <div class="card">
+        <img src="images/jersey4.jpeg" alt="Jersey">
+        <h3> MATCH TIME TRAINING JERSEY</h3>
+
+        <div class="rating">★★★★☆</div>
+
+        <p class="review">4.6/5 (22 Reviews)</p>
+
+        <p>
+            Performance Wear<br>
+            UV Protection<br>
+            Comfort Fit<br>
+            Durable Material
+        </p>
+
+        <br>
+
+        <label><strong>Size:</strong></label>
+
+        <select>
+            <option>36</option>
+            <option>38</option>
+            <option>40</option>
+            <option>42</option>
+            <option>44</option>
+            <option>46</option>
+        </select>
+
+        <div class="price">₹400 + Shipping</div>
+
+        <button onclick="addToCart(
+        'JERSEY',
+        400,
+        'images/jersey4.jpeg'
+        )">
+        Add To Cart
+        </button>
+    </div>
+
+</div>
+
+<h2 style="text-align:center; margin-top:50px;">
+    Customer Reviews
+</h2>
+
+<div class="review-box">
+
+    <input
+        type="text"
+        id="customerName"
+        placeholder="Your Name">
+
+    <textarea
+        id="customerReview"
+        placeholder="Write your review"></textarea>
+
+    <button onclick="addReview()">
+        Submit Review
+    </button>
+
+    <div id="reviews"></div>
+
+</div>
+
+<script>
+function addToCart(name, price,image){
+
+    let cart =
+    JSON.parse(localStorage.getItem("cart")) || [];
+
+    cart.push({
+        name:name,
+        price:price,
+        image:image,
+        quantity:1
+    });
+
+    localStorage.setItem(
+        "cart",
+        JSON.stringify(cart)
+    );
+
+    alert(name + " Added To Cart!");
+}
+
+function addReview(){
+
+    let name =
+    document.getElementById("customerName").value;
+
+    let review =
+    document.getElementById("customerReview").value;
+
+    if(name==="" || review===""){
+        alert("Please fill all fields");
+        return;
+    }
+
+    let reviewBox =
+    document.getElementById("reviews");
+
+    reviewBox.innerHTML +=
+    "<p><strong>" +
+    name +
+    ":</strong> " +
+    review +
+    "</p>";
+
+    document.getElementById("customerName").value="";
+    document.getElementById("customerReview").value="";
+}
+</script>
+
+</body>
+</html>

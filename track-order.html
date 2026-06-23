@@ -1,0 +1,153 @@
+<!DOCTYPE html><html>
+<head>
+<title>Track Order - Match Time Sports</title><style>
+
+body{
+font-family:Arial,sans-serif;
+background:#f5f5f5;
+padding:30px;
+}
+
+.container{
+max-width:700px;
+margin:auto;
+background:white;
+padding:30px;
+border-radius:15px;
+box-shadow:0 5px 20px rgba(0,0,0,.1);
+}
+
+h1{
+text-align:center;
+margin-bottom:20px;
+}
+
+input{
+width:100%;
+padding:12px;
+border:1px solid #ddd;
+border-radius:8px;
+margin-bottom:15px;
+}
+
+button{
+width:100%;
+padding:12px;
+background:#22c55e;
+color:white;
+border:none;
+border-radius:8px;
+cursor:pointer;
+}
+
+#result{
+margin-top:20px;
+}
+
+.status{
+padding:8px 15px;
+border-radius:6px;
+color:white;
+font-weight:bold;
+display:inline-block;
+}
+
+.pending{
+background:#f39c12;
+}
+
+.processing{
+background:#3498db;
+}
+
+.shipped{
+background:#9b59b6;
+}
+
+.delivered{
+background:#27ae60;
+}
+
+.cancelled{
+background:#e74c3c;
+}
+
+</style></head><body><div class="container"><h1>📦 Track Your Order</h1><input
+type="text"
+id="orderId"
+placeholder="Enter Order ID">
+
+<button onclick="trackOrder()">
+Track Order
+</button><div id="result"></div></div><script type="module">
+
+import { db } from "./firebase.js";
+
+import {
+collection,
+getDocs
+} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+
+window.trackOrder = async function(){
+
+let orderId =
+document.getElementById("orderId").value;
+
+const snapshot =
+await getDocs(collection(db,"orders"));
+
+let found = false;
+
+snapshot.forEach(doc=>{
+
+const order = doc.data();
+
+if(order.orderId === orderId){
+
+found = true;
+
+let statusClass =
+(order.status || "Pending").toLowerCase();
+
+document.getElementById("result").innerHTML =
+
+`
+<h2>Order Details</h2>
+
+<p><b>Order ID:</b>
+${order.orderId}</p>
+
+<p><b>Name:</b>
+${order.name}</p>
+
+<p><b>Total:</b>
+₹${order.total}</p>
+
+<p>
+<b>Status:</b>
+<span class="status ${statusClass}">
+${order.status || "Pending"}
+</span>
+</p>
+`;
+
+}
+
+});
+
+if(!found){
+
+document.getElementById("result").innerHTML =
+
+`
+<p style="color:red;">
+Order Not Found
+</p>
+`;
+
+}
+
+}
+
+</script></body>
+</html>
